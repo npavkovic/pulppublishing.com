@@ -342,31 +342,29 @@
         // GET THUMBNAILS
 
 
-        getJSON('https://picasaweb.google.com/data/feed/base/user/npavkovic/albumid/6172237273389537361?alt=json&kind=photo&authkey=Gv1sRgCNezw9CB5LGHBg&hl=en_US&imgmax=d&fields=entry(media:group(media:content(@url),media:keywords(text())))', buildthumbnails)
+        var images = ["absolut_thumb.jpg","bears.jpg","britten_poster_thumb.jpg","code_thumb.jpg","curious_flights_thumb.jpg","curmudgeon_thumb_02.jpg","curmudgeon_thumb.jpg","deviledtongue_thumb_01.jpg","embedded_everywhere_thumb.jpg","figments_cover_thumb.jpg","foot.jpg","ggbridge.jpg","globe_thumb.jpg","growing_on_open_thumb.jpg","hot_air_logo_02.png","hot_air_mobile_thumb.jpg","hot_air_poster_thumb.png","Hot-Air-Thumb-1G.gif","inter_thumb.jpg","java_growing_02.jpg","jennifer_thumb.png","kauhalemakaibeach.jpg","mag_thumb.jpg","mauichicken.jpg","mauiwoods.jpg","megamiles.png","planet_eye_thumb.jpg","planet_feature_thumb_01.jpg","planet_inhalt_thumb_01.jpg","planet_lips_thumb.jpg","planet_noose_2.jpg","planet_spread_internet_pro_thumb.jpg","planet_toc_thumb.jpg","public_cloud_icon.png","pulp_cover_01.jpg","pulp_modern_thumb.jpg","pulpelledge.jpg","pvm_cover_thumb.jpg","pvm_thumb_01.jpg","pvmmayan_02.jpg","schematic_reverse_thumb.jpg","sredni_one_thumb.gif","sredni_two_gif.jpg","Staircase.jpg","treetrunk.jpg","who_thumb_02.gif","who_thumb.jpg"];
+        buildthumbnails(images);
 
-        function buildthumbnails(albumref) {
+        function buildthumbnails(images) {
             var slwrp, nd, bl;
             var slc = 0,
-                blc = 1; // slide counter and ball counter
+                blc = 1;
 
             slwrp = set_class(makediv(), 'sldwrap');
 
-            for (j = 0; j < albumref.feed.entry.length; j++) {
-                ntry = albumref.feed.entry[j].media$group;
+            for (var j = 0; j < images.length; j++) {
                 nd = set_class(makediv(), 'sld');
-                nd.style.backgroundImage = 'url(' + ntry.media$content[0].url + ')';
+                nd.style.backgroundImage = 'url(images/' + images[j] + ')';
                 slwrp.appendChild(nd);
                 slc++;
                 if (slc == 4) {
-                    bl = document.getElementById('sq' + blc)
+                    bl = document.getElementById('sq' + blc);
                     bl.appendChild(slwrp);
                     slwrp = set_class(makediv(), 'sldwrap');
                     slc = 0;
                     blc++;
                 }
             }
-
-
         }
 
     }
