@@ -1,0 +1,404 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href='http://fonts.googleapis.com/css?family=Lato&text=ACFGHIKLNOPRSUV@' rel='stylesheet' type='text/css'>
+    <title>Pulp Publishing</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    html {
+        background: black;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font: 9px/28px "Lato";
+        letter-spacing: 4px;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: normal;
+        left: 0;
+        right: 0;
+        height: auto;
+        z-index: 1000;
+        margin-top: 24px;
+    }
+
+    #cw {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    a {
+        color: #D7E8C9;
+        text-decoration: none;
+        transition: color .5s;
+    }
+
+    a:hover {
+        color: tomato;
+    }
+
+    a:visited {
+        color: #D7E8C9;
+    }
+
+    [id^='sq'],
+    [id^='sq'] div.sld {
+        width: 25vw;
+        height: 33vh;
+        margin: 0;
+        background-color: black;
+    }
+
+    [id^='sq'] {
+        position: absolute;
+        z-index: -1;
+        overflow: hidden;
+        border: 4px solid black;
+    }
+
+    [id^='sq'] div.sld {
+        -webkit-filter: brightness(20%);
+        filter: brightness(20%);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        box-shadow: none;
+        transition: all 0s;
+        z-index: 1;
+    }
+
+    .sldwrap {
+        will-change: transform;
+        animation: slideshow 60s infinite;
+        -webkit-animation: slideshow 60s infinite;
+    }
+
+    @-webkit-keyframes slideshow {
+        0% {
+            transform: translateY(0);
+        }
+        22% {
+            transform: translateY(0);
+        }
+        25% {
+            transform: translateY(-25%);
+        }
+        47% {
+            transform: translateY(-25%);
+        }
+        50% {
+            transform: translateY(-50%);
+        }
+        72% {
+            transform: translateY(-50%);
+        }
+        75% {
+            transform: translateY(-75%);
+        }
+        97% {
+            transform: translateY(-75%);
+        }
+    }
+
+    #sq1>.sldwrap {
+        -webkit-animation-delay: 0;
+    }
+
+    #sq2>.sldwrap {
+        -webkit-animation-delay: -28s;
+    }
+
+    #sq6>.sldwrap {
+        -webkit-animation-delay: -1.5s;
+    }
+
+    #sq4>.sldwrap {
+        -webkit-animation-delay: -6s;
+        -webkit-animation-duration: 35s;
+    }
+
+    #sq7>.sldwrap {
+        -webkit-animation-delay: 3.5s;
+    }
+
+    #sq9>.sldwrap {
+        -webkit-animation-delay: -7s;
+        -webkit-animation-duration: 45s;
+    }
+
+    #sq8>.sldwrap {
+        -webkit-animation-delay: -12.5s;
+        -webkit-animation-duration: 55s;
+    }
+
+    #sq12>.sldwrap {
+        -webkit-animation-delay: -16.5s;
+        -webkit-animation-duration: 65s;
+    }
+
+    #sq3>.sldwrap {
+        -webkit-animation-delay: -24.5s;
+        -webkit-animation-duration: 55s;
+    }
+
+    #sq10>.sldwrap {
+        -webkit-animation-delay: -20s;
+        -webkit-animation-duration: 55s;
+    }
+
+    #sq5>.sldwrap {
+        -webkit-animation-delay: -18.5s;
+    }
+
+    #sq11>.sldwrap {
+        -webkit-animation-delay: -24s;
+    }
+
+
+    #sq1,
+    #sq2,
+    #sq3,
+    #sq4 {
+        top: 0;
+    }
+
+    #sq5,
+    #sq6,
+    #sq7,
+    #sq8 {
+        top: 33vh;
+    }
+
+    #sq9,
+    #sq10,
+    #sq11,
+    #sq12 {
+        top: 66vh;
+    }
+
+    #sq1,
+    #sq5,
+    #sq9 {
+        left: 0;
+    }
+
+    #sq2,
+    #sq6,
+    #sq10 {
+        left: 25vw;
+    }
+
+    #sq3,
+    #sq7,
+    #sq11 {
+        left: 50vw;
+    }
+
+    #sq4,
+    #sq8,
+    #sq12 {
+        left: 75vw;
+    }
+
+
+    #logowrap {
+        transform: translateY(19vh);
+        transition: transform 1s;
+    }
+
+    #logo {
+        width: 13vmax;
+        height: 13vmax;
+        min-width: 144px;
+        min-height: 144px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 300;
+        width: 13vmax;
+        height: 13vmax;
+        background-color: black;
+        fill: YellowGreen;
+        transition: top 1s, left 1s, width 1s, height 1s;
+        box-shadow: 0 0 80px rgba(200,200,255,.5);
+    }
+
+    #logo svg {
+        height: 120%;
+        width: 100%;
+        margin: 15% auto;
+        display: block;
+        transition: opacity 3s;
+    }
+
+
+    @-webkit-keyframes colorcycle {
+        100% {
+            fill: #FF0000;
+        }
+        65% {
+            fill: #FF5500;
+        }
+        50% {
+            fill: #FFAA00;
+        }
+        35% {
+            fill: #FFFF00;
+        }
+        0% {
+            fill: #AAFF00;
+        }
+    }
+
+    @keyframes colorcycle {
+        100% {
+            fill: #FF0000;
+        }
+        65% {
+            fill: #FF5500;
+        }
+        50% {
+            fill: #FFAA00;
+        }
+        35% {
+            fill: #FFFF00;
+        }
+        0% {
+            fill: #AAFF00;
+        }
+    }
+
+    #logo {
+        animation: colorcycle 30s alternate infinite;
+        -webkit-animation: colorcycle 30s alternate infinite;
+    }
+    </style>
+    <script type="text/javascript">
+    if (document.readyState != 'loading') {
+        pulp();
+    } else {
+        document.addEventListener('DOMContentLoaded', pulp);
+    }
+
+
+
+
+    function pulp() {
+
+        function makediv() { return document.createElement('div') };
+
+        function set_class(el, theclass) { el.className = theclass; return el; };
+
+        function gid(id) { return (document.getElementById(id)) }
+
+        function sclid(id, cls) { id.setAttribute("class", cls) }
+
+        function cclid(id) { id.setAttribute("class", "") }
+
+
+        // UTILITY FUNCTIONS
+
+        function getJSON(theURL, theCallback) {
+            var request = new XMLHttpRequest();
+            request.open('GET', theURL, true);
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                    var data = JSON.parse(request.responseText);
+                    theCallback(data);
+                } else {
+                    // We reached our target server, but it returned an error
+                }
+            }
+            request.onerror = function() {
+                // There was a connection error of some sort
+            }
+            request.send();
+        }
+
+        // LINKS IN GALLERY PAGE AND SLIDES
+
+        // GET THUMBNAILS
+
+
+        getJSON('https://picasaweb.google.com/data/feed/base/user/npavkovic/albumid/6172237273389537361?alt=json&kind=photo&authkey=Gv1sRgCNezw9CB5LGHBg&hl=en_US&imgmax=d&fields=entry(media:group(media:content(@url),media:keywords(text())))', buildthumbnails)
+
+        function buildthumbnails(albumref) {
+            var slwrp, nd, bl;
+            var slc = 0,
+                blc = 1; // slide counter and ball counter
+
+            slwrp = set_class(makediv(), 'sldwrap');
+
+            for (j = 0; j < albumref.feed.entry.length; j++) {
+                ntry = albumref.feed.entry[j].media$group;
+                nd = set_class(makediv(), 'sld');
+                nd.style.backgroundImage = 'url(' + ntry.media$content[0].url + ')';
+                slwrp.appendChild(nd);
+                slc++;
+                if (slc == 4) {
+                    bl = document.getElementById('sq' + blc)
+                    bl.appendChild(slwrp);
+                    slwrp = set_class(makediv(), 'sldwrap');
+                    slc = 0;
+                    blc++;
+                }
+            }
+
+
+        }
+
+    }
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0">
+        <filter id="blurit" width="110%" height="100%">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+        </filter>
+    </svg>
+</head>
+
+<body>
+    <div id='logowrap'>
+        <div id='logo'>
+            <svg>
+                <use xlink:href="prites.svg#pulpp"></use>
+            </svg>
+        </div>
+        <h2>pulp publishing<br />San Francisco, California<br />nicholas@pavkovic.com</h2>
+    </div>
+    <div id='sq1'></div>
+    <div id='sq2'></div>
+    <div id='sq3'></div>
+    <div id='sq4'></div>
+    <div id='sq5'></div>
+    <div id='sq6'></div>
+    <div id='sq7'></div>
+    <div id='sq8'></div>
+    <div id='sq9'></div>
+    <div id='sq10'></div>
+    <div id='sq11'></div>
+    <div id='sq12'></div>
+</body>
+
+</html>
